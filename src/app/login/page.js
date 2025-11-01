@@ -51,7 +51,7 @@ function Login() {
         }
     }
     return (
-        <>
+
 
             <Box sx={{ display: "flex", justifyContent: "center" }}>
                 <Box sx={{ marginTop: "50px", textAlign: "center", width: "400px", boxShadow: "2px 2px 4px black", backgroundColor: "#2685f3ff", padding: "10px", borderRadius: "20px" }}>
@@ -68,7 +68,7 @@ function Login() {
                 </Box>
             </Box>
 
-        </>
+    
     )
 }
 

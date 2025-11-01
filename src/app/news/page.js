@@ -40,17 +40,32 @@ export default async function NewsPage() {
             {articles.map((res, ind) => {
               return (
 
-                <Box sx={{ width: "340px", padding: "25px",position:"relative", boxShadow: "2px 2px 4px black", margin: "15px" }}>
-                  
-                  <Typography variant="h6" sx={{ color: "darkblue" }}>{res.title}</Typography>
-                  <Image style={{ width: "100%" }} src={res.urlToImage} />
-                  <Typography variant="h7">{res.description}<Link href={res.url} style={{color:"blue"}} >read more...</Link></Typography>
-                  
-                  
-                    
-                  
+                <Box key={ind} sx={{ width: "340px", padding: "25px", position: "relative", boxShadow: "2px 2px 4px black", margin: "15px" }}>
+
+                  <Typography variant="h6" sx={{ color: "darkblue" }}><span style={{fontWeight:"700",color:"red"}}>Title : </span>{res.title}</Typography>
+
+                  <Image
+                    src={res.urlToImage || "/placeholder.jpg"}
+                    alt={"News image"}
+                    width={340}
+                    height={200}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      borderRadius: "8px",
+                      objectFit: "cover",
+                      marginBottom:"20px"
+                    }}
+                    unoptimized           // to skip Next.js optimization for external URLs
+                  />
+
+                  <Typography variant="h7"><span style={{fontWeight:"800",color:"red"}}>Description : </span>{res.description}<Link href={res.url} style={{ color: "blue" }} >read more...</Link></Typography>
+
+
+
+
                 </Box>
-                
+
               )
             })}
           </Box>
