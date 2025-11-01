@@ -1,6 +1,6 @@
 "use client"
 import Navbar from "@/components/Navbar"
-import { Box, Paper, Typography } from "@mui/material"
+import { Avatar, Box, Card, CardContent, Grid, Paper, Typography } from "@mui/material"
 import axios from "axios"
 import { useEffect, useState } from "react"
 
@@ -22,61 +22,80 @@ function Contacts (){
     }
     return(
         <>
-        <Navbar/>
-        <Box sx={{textAlign:"center",padding:"10px"}}>
-            <Typography variant="h4">Contacts</Typography>
-        </Box>
-        
-        {user.length !== 0 ? (
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            minHeight: "80vh",
-            backgroundColor: "#f9f9f9",
-            py: 5,
-          }}
-        >
-          {user.map((res, ind) => (
-            <Paper
-              key={ind}
-              elevation={3}
-              sx={{
-                width: "60%",
-                textAlign: "center",
-                p: 2,
-                mb: 2,
-                borderRadius: 2,
-                transition: "transform 0.3s, box-shadow 0.3s",
-                "&:hover": {
-                  transform: "scale(1.03)",
-                  boxShadow: 6,
-                  backgroundColor: "#e3f2fd",
-                },
-              }}
-            >
-              <Typography variant="h6" sx={{ fontWeight: "bold", color: "#1976d2" }}>
-                {res.name}
-              </Typography>
-            </Paper>
+        <Navbar />
+      <Box sx={{ textAlign: "center", py: 4 }}>
+        <Typography variant="h4" sx={{ fontWeight: "bold", color: "#1976d2" }}>
+          Contacts
+        </Typography>
+        <Typography variant="subtitle1" color="text.secondary">
+          Our list of valued customers and their contact details
+        </Typography>
+      </Box>
+
+      {/* Contacts Section */}
+      <Box sx={{ flexGrow: 1, px: { xs: 2, sm: 4, md: 6 }, pb: 6 }}>
+        <Grid container spacing={3} justifyContent="center">
+          {user.map((user) => (
+            <Grid item xs={12} sm={6} md={4} key={user.id}>
+              <Card
+                elevation={4}
+                sx={{
+                  borderRadius: 3,
+                  "&:hover": {
+                    boxShadow:"2px 2px 4px black",
+                  },
+                }}
+              >
+                <CardContent
+                  sx={{
+                    textAlign: "center",
+                    p: 3,
+                    background: "linear-gradient(180deg, #e3f2fd 0%, #fff 100%)",
+                  }}
+                >
+                  <Avatar
+                    sx={{
+                      bgcolor: "#1976d2",
+                      mx: "auto",
+                      width: 64,
+                      height: 64,
+                      fontSize: 24,
+                    }}
+                  >
+                    {user.name.charAt(0)}
+                  </Avatar>
+
+                  <Typography
+                    variant="h6"
+                    sx={{ mt: 2, fontWeight: "bold", color: "#0d47a1" }}
+                  >
+                    {user.name}
+                  </Typography>
+
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ mt: 0.5 }}
+                  >
+                    <span style={{color:"green"}}>E-mail :</span> {user.email}
+                  </Typography>
+
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      mt: 1.5,
+                      fontStyle: "italic",
+                      color: "#555",
+                    }}
+                  >
+                  <span style={{color:"green"}}>Adress :</span>{user.address.street}, {user.address.city}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
           ))}
-        </Box>
-      ) : (
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            minHeight: "80vh",
-          }}
-        >
-          <Typography variant="h6" color="text.secondary">
-            No users found.
-          </Typography>
-        </Box>
-      )}
+        </Grid>
+      </Box>
     </>
   )}
 

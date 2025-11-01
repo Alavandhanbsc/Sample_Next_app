@@ -16,7 +16,7 @@ export default async function NewsPage() {
 
   try {
     const response = await fetch(
-      "https://newsapi.org/v2/everything?q=technology&language=en&apiKey=61e534cb81c04dd0874c9c76f65db709",
+      "https://newsapi.org/v2/everything?q=entertainment&language=en&apiKey=61e534cb81c04dd0874c9c76f65db709",
       { cache: "no-store" }
     );
 
