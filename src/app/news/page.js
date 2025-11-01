@@ -34,7 +34,7 @@ export default async function NewsPage() {
       {articles.length !== 0 ? (
         <>
           <Box sx={{ textAlign: "center", padding: "10px" }}>
-            <Typography variant="h3">Latest news</Typography>
+            <Typography variant="h3"> Today Latest news</Typography>
           </Box>
           <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "space-around" }}>
             {articles.map((res, ind) => {
