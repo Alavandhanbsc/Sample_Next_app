@@ -11,7 +11,7 @@ function Footer() {
         display: "flex",
         justifyContent: "center",
         gap: "200px",
-        position: "relative",
+        position: "fixed",
         bottom: 0,
         mt: "60px",            
       }}
