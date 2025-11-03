@@ -6,10 +6,8 @@ import { loginschema } from "@/models/LoginModels"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Swal from "sweetalert2"
-
 function Login() {
     //useState
-    const [formdata, setFormdata] = useState({ uname: "", uemail: "", upassword: "" })
     const [error, setError] = useState(false)
     const [errormessage, setErrormessage] = useState("")
     //variable for router

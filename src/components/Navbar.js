@@ -7,6 +7,8 @@ import { signOut, signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "@/context/ThemeContext";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
+import Image from "next/image";
+import mercurylogo from "../assets/mercurylogo.png"
 
 export default function Navbar() {
   const router = useRouter();
@@ -19,45 +21,18 @@ export default function Navbar() {
   if (!mounted) return null;
 
   return (
-    <AppBar
-      sx={{
-        padding: "20px",
-        position: "sticky",
-        top: 0,
-        backgroundColor: "#1976d2",
-      }}
-    >
-      <Box
-        sx={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        {/* 🔹 Left — Logo */}
-        <Box sx={{ flex: 1, display: "flex", justifyContent: "flex-start" }}>
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: "bold",
-              letterSpacing: 1,
-              color: "white",
-            }}
-          >
-            Mercury Minds
-          </Typography>
+    <AppBar sx={{padding: "20px",position: "sticky",top: 0,backgroundColor: "#1976d2",}}>
+      <Box sx={{ width: "100%", display: "flex",justifyContent: "space-between",alignItems: "center",gap:10}}>
+
+        {/* Left — Logo */}
+        <Box sx={{display:"flex",justifyContent:"space-around"}}>
+          <Box sx={{width:"230px"}}>
+            <Image src={mercurylogo} alt="mercury logo"/>
+          </Box>
         </Box>
 
         {/* Center — Navigation Links */}
-        <Box
-          sx={{
-            flex: 2,
-            display: "flex",
-            gap: 3,
-            justifyContent: "space-around",
-          }}
-        >
+        <Box sx={{display:"flex",justifyContent:"space-around",gap:5}}>
           <Link href="/home" style={linkStyle}>
             Home
           </Link>
@@ -67,7 +42,9 @@ export default function Navbar() {
           <Link href="/contacts" style={linkStyle}>
             Contacts
           </Link>
-          <Typography sx={{ ...linkText }}>About</Typography>
+          <Link href="/about" style={linkStyle}>
+          About
+          </Link>
           <Link href="/feedback" style={linkStyle}>
             Feedback
           </Link>
@@ -76,12 +53,16 @@ export default function Navbar() {
           </Link>
         </Box>
 
-        {/* 🔹 Right — Theme + Auth Buttons */}
+        <Box>
+          <Typography variant="h7" sx={{color:session?"#aeff00":"lightgrey",backgroundColor:"#044276ff",borderRadius:4,padding:"5px 15px"}}> {`${session?"Welcome":""} ${session ? session.user?.name || "User" : "Guest User"}`}</Typography>
+        </Box>
+
+        {/*  Right — Theme + Auth Buttons */}
         <Box
           sx={{
             flex: 1,
             display: "flex",
-            gap: 3,
+            gap:1,
             justifyContent: "space-around",
             alignItems: "center",
           }}
@@ -152,11 +133,7 @@ const linkStyle = {
   fontWeight: 500,
 };
 
-const linkText = {
-  color: "white",
-  fontWeight: 500,
-  cursor: "pointer",
-};
+
 
 const buttonStyle = {
   color: "white",

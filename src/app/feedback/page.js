@@ -1,11 +1,11 @@
 "use client"
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
 import Swal from "sweetalert2";
-
 
 function Feedback (){
 //url
@@ -15,7 +15,6 @@ const url = "/api/feedbackbend"
 
     //handlepost fn
     const handlepost = async()=>{
-        console.log(feeddata)
         setFeeddata({feedname:"",feedcontent:""})
 
         try{

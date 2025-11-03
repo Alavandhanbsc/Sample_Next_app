@@ -150,7 +150,7 @@ export default function NotesPage() {
     <>
       <Navbar />
 
-      <Box sx={{ display: "flex", justifyContent: "center", padding: "20px" }}>
+      <Box sx={{ display: "flex", justifyContent: "center", padding: "20px"}}>
         <Typography variant="h4">Task Manager</Typography>
       </Box>
 
@@ -186,7 +186,7 @@ export default function NotesPage() {
           <CircularProgress />
         </Box>
       ) : (
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box sx={{ display: "flex", justifyContent: "center", margin:"20px" }}>
           {data.length ? (
             <TableContainer sx={{ minWidth: 700, maxWidth: 1000 }} component={Paper}>
               <Table aria-label="customized table">

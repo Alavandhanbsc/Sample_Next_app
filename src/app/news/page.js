@@ -17,7 +17,7 @@ export default async function NewsPage() {
   try {
     const response = await fetch(
       "https://newsapi.org/v2/everything?q=entertainment&language=en&apiKey=61e534cb81c04dd0874c9c76f65db709",
-      { cache: "no-store" }
+      { cache: "no-store" ,next:{revalidate:3600}}
     );
 
 
@@ -40,9 +40,9 @@ export default async function NewsPage() {
             {articles.map((res, ind) => {
               return (
 
-                <Box key={ind} sx={{ width: "340px", padding: "25px", position: "relative", boxShadow: "2px 2px 4px black", margin: "15px" }}>
+                <Box key={ind} sx={{ width: "340px", padding: "25px",borderRadius:2, position: "relative", boxShadow: "2px 2px 4px black", margin: "15px" }}>
 
-                  <Typography variant="h6" sx={{ color: "darkblue" }}><span style={{fontWeight:"700",color:"red"}}>Title : </span>{res.title}</Typography>
+                  <Typography variant="h6" sx={{ color: "darkblue" }}><span style={{ fontWeight: "700", color: "red" }}>Title : </span>{res.title}</Typography>
 
                   <Image
                     src={res.urlToImage || "/placeholder.jpg"}
@@ -53,13 +53,12 @@ export default async function NewsPage() {
                       width: "100%",
                       height: "auto",
                       borderRadius: "8px",
-                      objectFit: "cover",
-                      marginBottom:"20px"
+                      marginBottom: "20px"
                     }}
-                    unoptimized           // to skip Next.js optimization for external URLs
+                    unoptimized           
                   />
 
-                  <Typography variant="h7"><span style={{fontWeight:"800",color:"red"}}>Description : </span>{res.description}<Link href={res.url} style={{ color: "blue" }} >read more...</Link></Typography>
+                  <Typography variant="h7"><span style={{ fontWeight: "800", color: "red" }}>Description : </span>{res.description}<Link href={`/news/${ind}`} style={{ color: "blue" }} >read more</Link></Typography>
 
 
 

@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SessionWrapper from "./SessionWrapper"; // import client wrapper
 import { ThemeProvider } from "@/context/ThemeContext";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           <SessionWrapper>
           {children}
+          <Footer/>
         </SessionWrapper>
         </ThemeProvider>
       </body>

@@ -21,25 +21,17 @@ function FeedBackRead() {
         try {
             const fetchdata = await axios.get(url)
             setFeedbacks(fetchdata.data.storage)
-            console.log(fetchdata)
-
         } catch (err) {
             console.log("from feedbackread :", err)
         }
     }
-
-    //readable time
-    const readable = new Intl.DateTimeFormat("en-IN", {
-        dateStyle: "medium",
-        timeStyle: "short",
-    }).format(feedbacks.time);
     return (
         <>
             <Navbar />
             {feedbacks.length !== 0 ? (<Box sx={{ textAlign: "center", padding: "20px" }}>
                 <Typography variant="h4" sx={{ color: "green" }}>Feedbacks</Typography>
             </Box>) : (<></>)}
-            <Box sx={{ position: "fixed", bottom: "20px", right: "20px" }}>
+            <Box sx={{ position: "fixed", bottom: "60px", right: "20px" }}>
                 <Link href="/feedback"><Button sx={{ margin: "20px" }} variant="contained">Write feedback</Button></Link>
             </Box>
             {feedbacks.length !== 0 ? (

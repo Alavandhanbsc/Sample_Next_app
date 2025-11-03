@@ -1,6 +1,7 @@
 "use client"
+import Footer from "@/components/Footer"
 import Navbar from "@/components/Navbar"
-import { Avatar, Box, Card, CardContent, Grid, Paper, Typography } from "@mui/material"
+import { Avatar, Box, Card, CardContent, Grid, Typography } from "@mui/material"
 import axios from "axios"
 import { useEffect, useState } from "react"
 
@@ -84,11 +85,10 @@ function Contacts (){
                     variant="body2"
                     sx={{
                       mt: 1.5,
-                      fontStyle: "italic",
                       color: "#555",
                     }}
                   >
-                  <span style={{color:"green"}}>Adress :</span>{user.address.street}, {user.address.city}
+                  <span style={{color:"green"}}>Address : </span>{user.address.street}, {user.address.city}
                   </Typography>
                 </CardContent>
               </Card>
