@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Box, Typography, Container, Grid, Card, CardContent, Link as MuiLink } from "@mui/material";
 
@@ -67,6 +68,7 @@ export default function AboutPage() {
         </Box>
 
       </Box>
+      <Footer/>
     </Box>
   );
 }

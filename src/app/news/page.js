@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
@@ -75,7 +76,7 @@ export default async function NewsPage() {
           <Typography variant="h4">News not found</Typography>
         </>
       )}
-
+<Footer/>
     </>
   );
 }

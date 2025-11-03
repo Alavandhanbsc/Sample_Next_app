@@ -23,6 +23,7 @@ import Swal from "sweetalert2";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { MdDelete } from "react-icons/md";
+import Footer from "@/components/Footer";
 
 // Styled table cells
 const StyledTableCell = styled(TableCell)({
@@ -223,6 +224,7 @@ export default function NotesPage() {
           )}
         </Box>
       )}
+      <Footer/>
     </>
   );
 }

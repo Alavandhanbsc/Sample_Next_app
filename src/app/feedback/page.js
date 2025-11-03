@@ -37,7 +37,7 @@ const url = "/api/feedbackbend"
     return(
         <>
         <Navbar/>
-        <Box sx={{textAlign:"center"}} >
+        <Box sx={{textAlign:"center",height:"75vh"}} >
             <Box sx={{width:"80%",boxShadow:"2px 2px 4px black",padding:"15px",textAlign:"left",margin:"auto",marginTop:"30px"}}>
                 <Typography variant="h4" sx={{color:"blue",padding:"8px"}}>Drop Feed Back</Typography>
                 <TextField value={feeddata.feedname} onChange={(e)=>{setFeeddata({...feeddata,feedname:e.target.value})}} label="Name" variant="outlined" sx={{width:"40%"}}/> <br/> <br/>
@@ -46,14 +46,17 @@ const url = "/api/feedbackbend"
                     <Button onClick={handlepost} variant="contained" sx={{width:"40%",padding:"5px"}}>Submit</Button>
                 </Box>
             </Box>
+
+            <Box sx={{textAlign:"center",marginTop:"50px"}} >
+                <Typography variant="h7" sx={{color:"grey"}}>Feedbacks are posted in nested page , click the navigation to read it .</Typography>
+                <Link href="/feedbackread"><Typography sx={{color:"blue"}} variant="h7">{`Tap to view feedback >>>`}</Typography></Link>
+            </Box>
         </Box>
         
         
 
-        <Box sx={{textAlign:"center",marginTop:"50px"}} >
-            <Typography variant="h7" sx={{color:"grey"}}>Feedbacks are posted in nested page , click the navigation to read it .</Typography>
-            <Link href="/feedbackread"><Typography sx={{color:"blue"}} variant="h7">{`Tap to view feedback >>>`}</Typography></Link>
-        </Box>
+        
+        <Footer/>
         </>
     )
 }

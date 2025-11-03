@@ -1,4 +1,5 @@
 "use client"
+import Footer from "@/components/Footer"
 import Navbar from "@/components/Navbar"
 import { Box, Button, Tab, Table, TableBody, TableCell, TableRow, Typography } from "@mui/material"
 import axios from "axios"
@@ -28,7 +29,8 @@ function FeedBackRead() {
     return (
         <>
             <Navbar />
-            {feedbacks.length !== 0 ? (<Box sx={{ textAlign: "center", padding: "20px" }}>
+            <Box sx={{height:"51vh"}}>
+                {feedbacks.length !== 0 ? (<Box sx={{ textAlign: "center", padding: "20px" }}>
                 <Typography variant="h4" sx={{ color: "green" }}>Feedbacks</Typography>
             </Box>) : (<></>)}
             <Box sx={{ position: "fixed", bottom: "60px", right: "20px" }}>
@@ -72,6 +74,8 @@ function FeedBackRead() {
                     </Box>
                 </>
             )}
+            </Box>
+            <Footer/>
         </>
     )
 }

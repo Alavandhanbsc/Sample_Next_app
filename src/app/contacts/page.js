@@ -96,6 +96,7 @@ function Contacts (){
           ))}
         </Grid>
       </Box>
+      <Footer/>
     </>
   )}
 

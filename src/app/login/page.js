@@ -6,6 +6,7 @@ import { loginschema } from "@/models/LoginModels"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Swal from "sweetalert2"
+
 function Login() {
     //useState
     const [error, setError] = useState(false)

@@ -26,7 +26,6 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           <SessionWrapper>
           {children}
-          <Footer/>
         </SessionWrapper>
         </ThemeProvider>
       </body>

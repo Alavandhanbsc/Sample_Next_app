@@ -11,9 +11,9 @@ function Footer() {
         display: "flex",
         justifyContent: "center",
         gap: "200px",
-        position: "fixed",
+        position: "relative",
         bottom: 0,
-        mt: "60px",            
+        mt: "20px",            
       }}
     >
       <MuiLink sx={hovereffect} href="/about">About</MuiLink>
